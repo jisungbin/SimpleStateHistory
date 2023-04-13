@@ -4,7 +4,7 @@
 - `redo()`
 - `undo()`
 
-[example](https://github.com/jisungbin/SimpleStateHistory/blob/main/app/src/main/kotlin/sungbin/simplestatehistory/MainActivity.kt) [implementation](https://github.com/jisungbin/SimpleStateHistory/blob/main/app/src/main/kotlin/sungbin/simplestatehistory/SimpleStateHistory.kt)
+[[example]](https://github.com/jisungbin/SimpleStateHistory/blob/main/app/src/main/kotlin/sungbin/simplestatehistory/MainActivity.kt) [[implementation]](https://github.com/jisungbin/SimpleStateHistory/blob/main/app/src/main/kotlin/sungbin/simplestatehistory/SimpleStateHistory.kt)
 
 ### 주의 사항
 
