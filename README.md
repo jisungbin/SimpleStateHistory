@@ -9,10 +9,13 @@
 ### 사용된 개념
 
 - `StateObject`
+- `StateObject#firstStateRecord`
 - `StateRecord`
+- `StateRecord#assign`
+- `StateRecord#create`
 - `StateRecord#writable` _(extension)_
 - `StateRecord#withCurrent` _(extension)_
-- `Snapshot#registerApplyObserver`
+- `Snapshot#registerApplyObserver` (`ObserverHandle`)
 
 ### 주의 사항
 
