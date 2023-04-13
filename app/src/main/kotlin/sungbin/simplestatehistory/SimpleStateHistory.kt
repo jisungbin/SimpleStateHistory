@@ -31,7 +31,7 @@ private fun StateObject.copyCurrentRecord(): StateRecord {
 
 private fun startRecording() {
     handle = Snapshot.registerApplyObserver { stateObjects, _ ->
-        (stateObjects.firstOrNull { it == target } as? StateObject)?.let { stateObject ->
+        (stateObjects.find { it == target } as? StateObject)?.let { stateObject ->
             if (currentFrame < frames.size - 1) {
                 frames.removeRange(currentFrame + 1, frames.size)
             }
