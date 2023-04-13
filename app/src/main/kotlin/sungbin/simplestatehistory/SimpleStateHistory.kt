@@ -32,13 +32,17 @@ private fun StateObject.copyCurrentRecord(): StateRecord {
 private fun startRecording() {
     handle = Snapshot.registerApplyObserver { stateObjects, _ ->
         if (target != null && stateObjects.any { it == target }) {
-            if (currentFrame < frames.size - 1) {
-                frames.removeRange(currentFrame + 1, frames.size)
-            }
-            frames += target!!.copyCurrentRecord()
-            currentFrame = frames.size
+            saveFrame()
         }
     }
+}
+
+private fun saveFrame() {
+    if (currentFrame < frames.size - 1) {
+        frames.removeRange(currentFrame + 1, frames.size)
+    }
+    frames += target!!.copyCurrentRecord()
+    currentFrame = frames.size
 }
 
 private fun stopRecording() {
@@ -51,18 +55,18 @@ fun <T> MutableState<T>.track(): MutableState<T> {
     return this
 }
 
-fun redo() {
-    stopRecording()
-    if (currentFrame + 1 in frames.indices) {
-        target!!.restoreFrom(frames[++currentFrame])
-    }
-    startRecording()
-}
-
 fun undo() {
     stopRecording()
     if (currentFrame - 1 in frames.indices) {
         target!!.restoreFrom(frames[--currentFrame])
+    }
+    startRecording()
+}
+
+fun redo() {
+    stopRecording()
+    if (currentFrame + 1 in frames.indices) {
+        target!!.restoreFrom(frames[++currentFrame])
     }
     startRecording()
 }
