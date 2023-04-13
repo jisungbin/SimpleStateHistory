@@ -31,11 +31,11 @@ private fun StateObject.copyCurrentRecord(): StateRecord {
 
 private fun startRecording() {
     handle = Snapshot.registerApplyObserver { stateObjects, _ ->
-        (stateObjects.find { it == target } as? StateObject)?.let { stateObject ->
+        if (target != null && stateObjects.any { it == target }) {
             if (currentFrame < frames.size - 1) {
                 frames.removeRange(currentFrame + 1, frames.size)
             }
-            frames += stateObject.copyCurrentRecord()
+            frames += target!!.copyCurrentRecord()
             currentFrame = frames.size
         }
     }
