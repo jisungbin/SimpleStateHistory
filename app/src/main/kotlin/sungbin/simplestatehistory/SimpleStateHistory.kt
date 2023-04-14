@@ -42,7 +42,7 @@ private fun saveFrame() {
         frames.removeRange(currentFrame + 1, frames.size)
     }
     frames += target!!.copyCurrentRecord()
-    currentFrame = frames.size
+    currentFrame++
 }
 
 private fun stopRecording() {
