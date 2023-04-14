@@ -31,10 +31,14 @@ private fun StateObject.copyCurrentRecord(): StateRecord {
 
 private fun startRecording() {
     handle = Snapshot.registerApplyObserver { stateObjects, _ ->
-        if (target != null && stateObjects.any { it == target }) {
+        if (stateObjects.any { it == target }) {
             saveFrame()
         }
     }
+}
+
+private fun stopRecording() {
+    handle!!.dispose()
 }
 
 private fun saveFrame() {
@@ -43,10 +47,6 @@ private fun saveFrame() {
     }
     frames += target!!.copyCurrentRecord()
     currentFrame++
-}
-
-private fun stopRecording() {
-    handle!!.dispose()
 }
 
 fun <T> MutableState<T>.track(): MutableState<T> {
