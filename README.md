@@ -21,3 +21,7 @@
 
 - 멀티 스레드를 고려하지 않았습니다.
 - 하나의 `StateObject`만 지원합니다.
+
+### Article
+
+[Deep Dive into Jetpack Compose State 발표 자료 및 슬라이도 답변](https://sungbin.land/deep-dive-into-jetpack-compose-state-%EB%B0%9C%ED%91%9C-%EC%9E%90%EB%A3%8C-%EB%B0%8F-%EC%8A%AC%EB%9D%BC%EC%9D%B4%EB%8F%84-%EB%8B%B5%EB%B3%80-4dbea6326b56?source=collection_home---4------0-----------------------)
